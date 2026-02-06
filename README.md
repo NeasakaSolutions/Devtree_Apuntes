@@ -26,3 +26,26 @@ nvm install --lts
 node -v
 npm -v
 ```
+
+---
+
+# Creacion del entorno Node.js
+
+- En terminal:
+
+```bash
+npm init
+```
+
+- Configurar el proyecto
+
+- Crear el .gitignore y como recomendacion agregar:
+
+```bash
+node_modules/
+node_modules
+.env
+package-lock.json
+dist
+```
+
