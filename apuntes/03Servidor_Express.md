@@ -1,5 +1,19 @@
 ### Creacion del Servidor de Express
 
+- Crear un archivo llamado index.js en la carpeta principal de backend:
+
+```bash
+Deevtree/
+├── backend/
+│   ├── node_modules/
+│   ├── index.js    ARCHIVO QUE DEBES DE CREAR
+│   ├── .gitignore
+│   ├── package-lock.json
+│   ├── package.json
+```
+
+- En el archivo index.js agregar:
+
 ```javascript
 // Iportaciones:
 const express = require('express');
@@ -24,14 +38,5 @@ app.get('/', (req, res) => {
 });
 ```
 
----
-
-### Instalar dependencias:
-
-- En terminal ejecutar:
-
-```bash
-npm i -D nodemon
-```
 
 

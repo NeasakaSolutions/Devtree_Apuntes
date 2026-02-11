@@ -1,5 +1,13 @@
 # Configurar Nodemon
 
+### Instalar dependencias:
+
+- En terminal ejecutar:
+
+```bash
+npm i -D nodemon
+```
+
 - Ir al archivo package.json y modificar esta parte:
 
 ```javascript
