@@ -1,5 +1,8 @@
 // Iportaciones:
-const express = require('express');
+import express from "express"; // ESM Ecmascript module
+
+// Variables:
+const port = process.env.PORT || 4000;
 
 // Instancia del servidor:
 const app = express();
@@ -10,8 +13,8 @@ app.get('/', (req, res) => {
 });
 
 // Generar servidor:
-app.listen(4000, () => {
-    console.log("Servidor funcionando.");
+app.listen(port, () => {
+    console.log("Servidor funcionando en el puerto:", port);
 });
 
 
