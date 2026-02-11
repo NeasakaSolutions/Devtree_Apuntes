@@ -23,3 +23,15 @@ app.get('/', (req, res) => {
     res.send("Hola mundo en express");
 });
 ```
+
+---
+
+### Instalar dependencias:
+
+- En terminal ejecutar:
+
+```bash
+npm i -D nodemon
+```
+
+
