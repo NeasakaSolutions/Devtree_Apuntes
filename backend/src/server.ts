@@ -1,13 +1,12 @@
 // Importaciones:
 import express from "express"; // ESM Ecmascript module
+import router from "./router";
 
 // Instancia del servidor:
 const app = express();
 
-// Routing:
-app.get('/', (req, res) => {
-    res.send("Hola mundo en express");
-});
+// Usa el router para todas las rutas
+app.use("/", router);
 
 export default app
 

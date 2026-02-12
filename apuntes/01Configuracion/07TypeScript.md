@@ -16,12 +16,13 @@
   },
 ```
 
-- En la carpeta de src crear el archivo server.ts:
+- En la carpeta de src crear un archivo llamado server.ts y otro llamado router.ts:
 ```bash
 Deevtree/
 ├── backend/
 │   ├── node_modules/
 │   ├── src/
+│   │   ├── router.ts   ARCHIVO QUE DEBES DE CREAR
 │   │   ├── server.ts   ARCHIVO QUE DEBES DE CREAR
 │   │   └── index.ts
 │   ├── .gitignore
@@ -35,14 +36,13 @@ Deevtree/
 ```typescript
 // Importaciones:
 import express from "express"; // ESM Ecmascript module
+import router from "./router";
 
 // Instancia del servidor:
 const app = express();
 
-// Routing:
-app.get('/', (req, res) => {
-    res.send("Hola mundo en express");
-});
+// Usa el router para todas las rutas
+app.use("/", router);
 
 export default app
 ```
@@ -60,5 +60,17 @@ const port = process.env.PORT || 4000;
 server.listen(port, () => {
     console.log("Servidor funcionando en el puerto:", port);
 });
+```
+
+- En router.ts poner:
+
+```typescript
+// Importaciones:
+import { Router } from 'express';
+
+// Instancia del router:
+const router = Router()
+
+export default router
 ```
 
