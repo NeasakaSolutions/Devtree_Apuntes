@@ -56,3 +56,8 @@ export const connectDB = async () => {
 }
 ```
 
+- En terminal ejecutar:
+```bash
+npm i colors
+```
+
