@@ -1,12 +1,13 @@
 // Importaciones:
 import { Request, Response } from "express";
 import User from "../models/User";
+import { hashPassword } from "../utils/auth";
 
 // Funcion para crear usuario:
 export const createAccount = async(req: Request, res: Response) => {
 
     // Variables:
-    const { email } = req.body;
+    const { email, password } = req.body;
 
     // Validaciones:
     const userExists = await User.findOne({email}); // findOne == WHERE en MySQL
@@ -20,6 +21,9 @@ export const createAccount = async(req: Request, res: Response) => {
 
     // Crear usuario:
     const user = new User(req.body);
+    // hash de la password
+    user.password = await hashPassword(password);
+
     await user.save();
 
     // Respuesta para el servidor
