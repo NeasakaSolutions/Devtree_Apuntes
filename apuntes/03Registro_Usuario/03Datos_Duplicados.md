@@ -1,3 +1,7 @@
+# Evitar datos duplicados:
+
+- En index.ts de handlers agregar las siguientes validaciones:
+```typescript
 // Importaciones:
 import { Request, Response } from "express";
 import User from "../models/User";
@@ -25,5 +29,6 @@ export const createAccount = async(req: Request, res: Response) => {
     // Respuesta para el servidor
     res.status(201).send("Registro creado correctamente.");
 }
+```
 
-/*AQUI SE ALMACENAN FUNCIONES PARA UTILIZAR EN OTROS ARCHIVOS */
+
