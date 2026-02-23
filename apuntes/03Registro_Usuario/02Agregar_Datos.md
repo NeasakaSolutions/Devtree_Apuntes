@@ -58,10 +58,11 @@ Deevtree/
 - En index.ts del archivo que se acaba de crear agregar:
 ```typescript
 // Importaciones:
+import { Request, Response } from "express";
 import User from "../models/User";
 
 // Funcion para crear usuario:
-export const createAccount = async(req, res) => {
+export const createAccount = async(req: Request, res: Response) => {
     // Crear usuario:
     const user = new User(req.body);
     await user.save();
