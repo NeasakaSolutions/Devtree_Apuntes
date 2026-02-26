@@ -1,5 +1,12 @@
 ### Creacion del Servidor de Express
 
+- Dscargar express, en terminal ejecutar:
+
+```bash
+npm install express
+```
+
+
 - Crear un archivo llamado index.js en la carpeta principal de backend:
 
 ```bash
