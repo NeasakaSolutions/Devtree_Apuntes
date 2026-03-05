@@ -56,4 +56,32 @@ export const createAccount = async(req: Request, res: Response) => {
     res.status(201).send("Registro creado correctamente.");
 }
 
+export const login = async(req: Request, res: Response) => {
+    // Manejo de errores:
+    let errors = validationResult(req);
+
+    if(!errors.isEmpty()){
+        return res.status(400).json({
+            errors: errors.array()
+        });
+    }
+
+    // Variables:
+    const { email, password } = req.body;
+
+    // Validaciones:
+    const user = await User.findOne({email}); // findOne == WHERE en MySQL
+
+    // Validar si el usuario existe:
+    if (!user){
+        // Variable de error:
+        const error = new Error("Ese usuario no esta registrado.");
+        
+        return res.status(404).json({error: error.message});
+    } 
+
+    // Validar password:
+
+};
+
 /*AQUI SE ALMACENAN FUNCIONES PARA UTILIZAR EN OTROS ARCHIVOS */

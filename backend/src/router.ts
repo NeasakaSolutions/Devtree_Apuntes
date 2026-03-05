@@ -1,12 +1,12 @@
 // Importaciones:
 import { Router } from 'express';
 import { body } from "express-validator"
-import { createAccount } from './handlers';
+import { createAccount, login } from './handlers';
 
 // Instancias:
 const router = Router()
 
-// Autenticacion y regsitro:
+// Regsitro:
 router.post("/auth/register", 
 // Validaciones:
     body("handle")
@@ -22,6 +22,17 @@ router.post("/auth/register",
         .isLength({min: 8})
         .withMessage("El password no puede ir vacio."),   
     createAccount);
+
+// Autenticacion: 
+router.post("/auth/login",
+    body("email")
+        .isEmail()
+        .withMessage("El correo es invalido"),
+    body("password")
+        .notEmpty()
+        .withMessage("El password no puede ir vacio."),
+    login
+);
 
 export default router
 
