@@ -9,5 +9,10 @@ export const hashPassword = async(password: string) => {
     return await bcrypt.hash(password, salt);
 }
 
+// Funcion para comparar password
+export const checkPassword = async(enteredPassword: String, hash: String) => {
+
+    return await bcrypt.compare(enteredPassword, hash);
+};
 /*ARCHIVO QUE CONTIENE FUNCIONES DE BCRYPT */
 

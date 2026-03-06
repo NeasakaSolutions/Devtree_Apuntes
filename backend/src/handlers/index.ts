@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { validationResult } from "express-validator";
 import User from "../models/User";
 import slug from "slug";
-import { hashPassword } from "../utils/auth";
+import { checkPassword, hashPassword } from "../utils/auth";
 
 // Funcion para crear usuario:
 export const createAccount = async(req: Request, res: Response) => {
@@ -81,7 +81,16 @@ export const login = async(req: Request, res: Response) => {
     } 
 
     // Validar password:
+    const isPasswordCorrect = await checkPassword(password, user.password);
+    // Validar si el usuario existe:
+    if (!isPasswordCorrect){
+        // Variable de error:
+        const error = new Error("Password incorrecto.");
+        
+        return res.status(401).json({error: error.message});
+    } 
 
+    res.send("Autenticado...");
 };
 
 /*AQUI SE ALMACENAN FUNCIONES PARA UTILIZAR EN OTROS ARCHIVOS */
