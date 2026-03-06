@@ -2,6 +2,7 @@
 import { Router } from 'express';
 import { body } from "express-validator"
 import { createAccount, login } from './handlers';
+import { handleIputErrors } from './middleware/validation';
 
 // Instancias:
 const router = Router()
@@ -21,6 +22,7 @@ router.post("/auth/register",
     body("password")
         .isLength({min: 8})
         .withMessage("El password no puede ir vacio."),   
+    handleIputErrors,
     createAccount);
 
 // Autenticacion: 
